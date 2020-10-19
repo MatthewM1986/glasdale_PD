@@ -1,6 +1,5 @@
-
-import { getCriminals, useCriminals } from './criminals/CriminalProvider.js'
-import { Criminal } from './criminals/Criminal.js'
+import { getCriminals, useCriminals } from './CriminalProvider.js'
+import { Criminal } from './Criminal.js'
 
 const criminalsContainer = document.querySelector(".criminalsContainer")
 
@@ -17,9 +16,9 @@ export const CriminalList = () => {
         criminalHTMLRepresentation += Criminal(criminal)
 
         criminalsContainer.innerHTML = `
-        <div class="criminal">
+        <section class="criminalList">
             ${criminalHTMLRepresentation}
-        </div>
+        </section>
         `
         }
     })
