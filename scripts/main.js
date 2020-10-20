@@ -23,3 +23,7 @@ CriminalList()
 import { OfficerList } from './officers/OfficerList.js'
 
 OfficerList()
+
+import { ConvictionSelect } from './Convictions/ConvictionSelect.js'
+
+ConvictionSelect()
