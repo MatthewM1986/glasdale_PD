@@ -1,3 +1,10 @@
+import { CriminalList } from './criminals/CriminalList.js'
+import { OfficerList } from './officers/OfficerList.js'
+import { ConvictionSelect } from './convictions/ConvictionSelect.js'
+
+CriminalList()
+OfficerList()
+ConvictionSelect()
 //import {getOfficers, useOfficers} from "./officers/OfficerProvider.js"
 
 //getOfficers()
@@ -16,14 +23,3 @@
 //    })
 //    console.log(getCriminals)
 
-import { CriminalList } from './criminals/CriminalList.js'
-
-CriminalList()
-
-import { OfficerList } from './officers/OfficerList.js'
-
-OfficerList()
-
-import { ConvictionSelect } from './Convictions/ConvictionSelect.js'
-
-ConvictionSelect()
