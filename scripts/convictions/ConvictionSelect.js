@@ -15,7 +15,7 @@ eventHub.addEventListener("change", event => {
     if (event.target.id === "crimeSelect") {
         const customEvent = new CustomEvent("crimeChosen", {
             detail: {
-                crimeThatWasChosen: parseInt(event.target.value)
+                findConviction: parseInt(event.target.value)
             }
         })
         eventHub.dispatchEvent(customEvent)
@@ -34,7 +34,7 @@ const render = convictionsCollection => {
             <option value="0">Please select a crime...</option>
             ${convictionsCollection.map(
                     convictionObj => {
-                        return `<option value = "${convictionObj.id}">${convictionObj.name}</option>`
+                        return `<option value="${convictionObj.id}">${convictionObj.name}</option>`
                     })
                 }
         </select>

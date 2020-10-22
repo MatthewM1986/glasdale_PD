@@ -12,51 +12,52 @@ export const CriminalList = () => {
             component should be rendered?
         */
        const criminalArray = useCriminals()
-
-    let criminalHTMLRepresentation = ""
-       
-       for (const criminal of criminalArray) {
-
-        criminalHTMLRepresentation += Criminal(criminal)
-
-        criminalsContainer.innerHTML = `
-        <section class="criminalList">
-            ${criminalHTMLRepresentation}
-        </section>
-        `
-        }
+        render(criminalArray)
     })
 }
 
 
 eventHub.addEventListener("crimeChosen", event => {
-   console.log(event)
-        if (event.detail.crimeThatWasChosen !== "0") {
-                //debugger 
+        if (event.detail.findConviction !== "0") {
             const criminalArray = useCriminals()
 
             const convictionsArray = useConvictions()
 
             const findConviction = convictionsArray.find(convictionObj => {
-                return convictionObj.id === event.detail.crimeThatWasChosen
+ 
+                return convictionObj.id === event.detail.findConviction
                 
             })
             //console.log(findConviction)
             const filterCriminal = criminalArray.filter(criminalObj => {
                 return criminalObj.conviction === findConviction.name
             })
-
-                let criminalHTMLRepresentation = ""
-       
-                for (const criminal of filterCriminal) {
-         
-                 criminalHTMLRepresentation += Criminal(criminal)
-            }
-                 criminalsContainer.innerHTML = `
-                 <section class="criminalList">
-                     ${criminalHTMLRepresentation}
-                 </section>
-                 `
+            render(filterCriminal)
                  
     }
 })
+
+eventHub.addEventListener("officerSelected", event => {
+    const selectedOfficerName = event.detail.officer
+    const criminalArray = useCriminals()
+  
+    const arrestingOfficer = criminalArray.filter(
+      (criminalObj) => criminalObj.arrestingOfficer === selectedOfficerName)
+  
+    render(arrestingOfficer)
+  })
+  
+  
+  const render = (criminalArray) => {
+    let criminalHTMLRepresentations = ""
+    for (const criminal of criminalArray) {
+  
+      criminalHTMLRepresentations += Criminal(criminal)
+  
+      criminalsContainer.innerHTML = `
+            <section class="criminalList">
+              ${criminalHTMLRepresentations}
+            </section>
+          `
+    }
+  }
