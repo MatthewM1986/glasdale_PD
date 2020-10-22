@@ -9,9 +9,10 @@ export const getOfficers = () => {
         .then(response => response.json())
         .then(
             parsedOfficers => {
-                //console.table(parsedOfficers)
                 officers = parsedOfficers
             }
         )
 }
+
+
 
