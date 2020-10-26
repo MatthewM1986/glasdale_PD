@@ -2,7 +2,6 @@ import {useCriminals} from "./CriminalProvider.js"
 
 const eventHub = document.querySelector(".container")
 
-export const createAlibiEventListener = () => {
     eventHub.addEventListener("alibiButtonClicked", (eventObj) => {
         const arrayOfCriminals = useCriminals()
             const foundCriminal = arrayOfCriminals.find((criminalObj) => {
@@ -10,7 +9,6 @@ export const createAlibiEventListener = () => {
     })
     AlibiList(foundCriminal)
 })
-}
 
 const AlibiList = (criminalObj) => {
     render(criminalObj)
