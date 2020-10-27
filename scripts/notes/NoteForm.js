@@ -1,6 +1,6 @@
 import { saveNote } from './NoteProvider.js'
 
-const contentTarget = document.querySelector(".noteForm")
+const contentTarget = document.querySelector(".noteFormContainer")
 const eventHub = document.querySelector(".container")
 
 const render = () => {

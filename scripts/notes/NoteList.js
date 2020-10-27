@@ -6,7 +6,7 @@ import { getNotes, useNotes } from './NoteProvider.js';
 // render html string of notes to the notesContainer element on the DOM
 
 
-const notesContainer = document.querySelector(".noteFormContainer");
+const notesContainer = document.querySelector(".noteForm");
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("noteStateChanged", () => NoteList())
