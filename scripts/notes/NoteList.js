@@ -1,3 +1,38 @@
+// import { NoteAsHTML } from './Note.js';
+// import { getNotes, useNotes } from './NoteProvider.js';
+// import { useCriminals, getCriminals } from '../criminals/CriminalProvider.js'
+
+// // get the notes from the api >> use the notes array
+// const notesContainer = document.querySelector(".noteForm");
+// const eventHub = document.querySelector(".container")
+
+// eventHub.addEventListener("noteStateChanged", () => NoteList())
+
+// const render = (notesArray, criminalCollection) => {
+//   notesContainer.innerHTML = notesArray.map(noteObject => {
+//       // Find the related criminal
+//       const relatedCriminal = criminalCollection.find(criminalObj => criminalObj.id === noteObject.criminalId)
+
+//       return `
+//           <section class="notes">
+//               <h2>Note about ${relatedCriminal.name}</h2>
+//               ${noteObject.notes}
+//           </section>
+//       `
+//   })
+// }
+
+// export const NoteList = () => {
+//   getNotes().then(getCriminals).then(() => {
+//     const allNotes = useNotes()
+//     const allCriminals = useCriminals()
+//     render(allNotes, allCriminals)
+//     })
+// }
+
+
+
+
 import { NoteAsHTML } from './Note.js';
 import { getNotes, useNotes } from './NoteProvider.js';
 
