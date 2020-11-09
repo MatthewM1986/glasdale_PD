@@ -1,5 +1,6 @@
 import { NoteAsHTML } from './Note.js';
 import { getNotes, useNotes } from './NoteProvider.js';
+import { getCriminals, useCriminals } from '../criminals/CriminalProvider.js';
 
 // get the notes from the api >> use the notes array
 // iterate the notes array >> make an html representation each
@@ -13,20 +14,28 @@ eventHub.addEventListener("noteStateChanged", () => NoteList())
 
 export const NoteList = () => {
 
-  getNotes().then(() => {
+  getNotes().then(getCriminals).then(() => {
     const allNotes = useNotes()
-    render(allNotes)
+    const allCriminals = useCriminals()
+    render(allNotes, allCriminals)
     })
 }
-const render = (notesArray => {
+//debugger
+const render = (notesArray, criminalArray) => {
     let notesHTMLRepresentations = ""
     for (const note of notesArray) {
-      notesHTMLRepresentations += NoteAsHTML(note)
+      const relatedCriminal = criminalArray.find(criminal => criminal.id === note.suspect)
+      notesHTMLRepresentations += NoteAsHTML(note, relatedCriminal)
     }
+    //console.log("find note", render)
    
     notesContainer.innerHTML = `
     <div class="notes">
             ${notesHTMLRepresentations}
         </div>
           `
-  })
+  }
+
+
+
+

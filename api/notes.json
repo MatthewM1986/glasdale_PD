@@ -1,18 +1,11 @@
 {
   "notes": [
     {
-      "dateOfQuestioning": "10/23/20",
+      "dateOfQuestioning": "2020-11-09",
+      "suspect": 2,
       "officer": "Matthew",
-      "suspect": "Dylana",
-      "notes": "Very Suspicious",
+      "notes": "guilty",
       "id": 1
-    },
-    {
-      "dateOfQuestioning": "2020-10-25",
-      "officer": "Melissa",
-      "suspect": "Becca",
-      "notes": "She is guilty!",
-      "id": 2
     }
   ]
 }
