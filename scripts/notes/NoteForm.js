@@ -28,7 +28,6 @@ const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "submit-note") {
-        //debugger
         const dateOfQuestioning = document.querySelector("#date").value
         // + symbols equals parseInt
         const suspect = +document.querySelector("#notes--criminal").value
