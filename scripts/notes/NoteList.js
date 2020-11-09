@@ -1,5 +1,5 @@
 import { NoteAsHTML } from './Note.js';
-import { getNotes, useNotes } from './NoteProvider.js';
+import { getNotes, useNotes, deleteNote } from './NoteProvider.js';
 import { getCriminals, useCriminals } from '../criminals/CriminalProvider.js';
 
 // get the notes from the api >> use the notes array
@@ -20,14 +20,14 @@ export const NoteList = () => {
     render(allNotes, allCriminals)
     })
 }
-//debugger
+
 const render = (notesArray, criminalArray) => {
     let notesHTMLRepresentations = ""
     for (const note of notesArray) {
       const relatedCriminal = criminalArray.find(criminal => criminal.id === note.suspect)
       notesHTMLRepresentations += NoteAsHTML(note, relatedCriminal)
     }
-    //console.log("find note", render)
+    
    
     notesContainer.innerHTML = `
     <div class="notes">
@@ -36,6 +36,24 @@ const render = (notesArray, criminalArray) => {
           `
   }
 
+  eventHub.addEventListener("click", clickEvent => {
+    console.log(clickEvent, "id")
+    if (clickEvent.target.id.startsWith("deleteNote--")) {
+        const [prefix, id] = clickEvent.target.id.split("--")
 
+        /*
+            Invoke the function that performs the delete operation.
+
+            Once the operation is complete you should THEN invoke
+            useNotes() and render the note list again.
+        */
+       deleteNote(id).then(
+           () => {
+               const updatedNotes = useNotes()
+               const criminals = useCriminals()
+               render(updatedNotes, criminals)
+        })
+    }
+})
 
 
