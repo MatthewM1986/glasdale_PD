@@ -1,5 +1,5 @@
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector(".facility__button")
+const contentTarget = document.querySelector(".facilityList")
 
 export const FacilityButton = () => {
 
