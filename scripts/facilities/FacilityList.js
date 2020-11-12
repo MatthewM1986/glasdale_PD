@@ -3,7 +3,7 @@ import { FacilityAsHTML } from './Facilities.js'
 
 
 
-const facilityContainer = document.querySelector(".facilityContainer")
+const facilityContainer = document.querySelector(".criminalsContainer")
 const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("facilityChosen", () => {
