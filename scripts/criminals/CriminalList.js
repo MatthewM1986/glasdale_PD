@@ -118,10 +118,4 @@ const render = () => {
 
 
 
-          // Must pass the matching facilities to the Criminal component
-  //         return Criminal(criminalObj, matchedFacilities)
-  //     }
-  // ).join("")
 
-  
-  //   }
